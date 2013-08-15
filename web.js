@@ -18,7 +18,6 @@ console.log("Listening on port "+port);
 io.sockets.on('connection', function(socket){
   socket.emit('message', { message: 'welcome to the chat'});
   socket.on('send', function(data){
-    console.log("message to transmit", data);
     io.sockets.emit('message', data);
   })
 })
