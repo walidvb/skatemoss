@@ -5,11 +5,8 @@ html
     script(src="/jquery.min.js")
     script(src="/controller.js")
     script(src="/socket.io/socket.io.js")
-    script(src="/masonry.pkgd.min.js")
     link(rel="stylesheet", href="/styles.css")
   body
-    #main
-      ul
-        each item in items
-          li
-            a.item(href="#"+item.id, data-id=item.id): img(src=item.thumb)
+    ul
+      li: a(href="/controller", target="_blank")= "The controller"
+      li: a(href="/beamer", target="_blank")= "The Beamer"

@@ -11,4 +11,4 @@ html
     #main
       .cycle-slideshow(data-cycle-slides="> .cycle-slide", data-cycle-paused="true",)
         each item in items
-          .item.cycle-slide(href="#"+item.id, data-id=item.id, data-cycle-hash=item.id): img(src="/"+item.img)
+          .item.cycle-slide(href="#"+item.id, data-id=item.id, data-cycle-hash=item.id): img(src=item.img)
