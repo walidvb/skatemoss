@@ -15,7 +15,7 @@ var list = require(__dirname + '/resources/boardlist.json');
 console.log(list.items);
 //set menu callbacks
 app.get("/beamer", function(req, res){
-  res.render("beamer");
+  res.render("beamer", list);
 })
 
 app.get("/controller", function(req, res){
@@ -36,7 +36,7 @@ console.log("Listening on port "+port);
 
 io.sockets.on('connection', function(socket){
   socket.on('send', function(data){
-    io.sockets.emit('change', data);
+    io.sockets.emit('send', data);
     console.log(data);
   })
 })

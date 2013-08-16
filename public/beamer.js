@@ -6,6 +6,19 @@
   var socket = io.connect(serverAddress);
   var items = $('.item');
 
+  socket.on('send', function(data){
+    if(data.id)
+    {
+      console.log(data.id);
+      window.location.hash = data.id;
+    }
+    else
+    {
+      console.log("Problem with ", data);
+    }
+  });
+
+
   var selectedClass = 'selected';
   items.on('click', function() {
     var id = $(this).attr('data-id');
