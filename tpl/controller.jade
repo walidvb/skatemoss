@@ -1,11 +1,14 @@
 !!!
 html
   head
-    title="Choose your style"
-    script(src="/chat.js")
+    title= title
+    script(src="/jquery.min.js")
+    script(src="/controller.js")
     script(src="/socket.io/socket.io.js")
+    link(rel="stylesheet", href="/styles.css")
   body
-    #content(style="width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;")
-    .controls
-      input#field(style="width: 350px")
-      input#send(type='button', value='send')
+    #main
+      ul
+        each item in items
+          li
+            a.item(href="#"+item.id, data-id=item.id): img(src="/"+item.src)

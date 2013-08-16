@@ -10,12 +10,16 @@ app.set('views', __dirname + "/tpl");
 app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
 
+//get boards
+var list = require(__dirname + '/resources/boardlist.json');
+console.log(list.items);
+//set menu callbacks
 app.get("/beamer", function(req, res){
   res.render("beamer");
 })
 
 app.get("/controller", function(req, res){
-  res.render("controller");
+  res.render("controller", list);
 })
 
 
@@ -31,8 +35,8 @@ io.configure(function () {
 console.log("Listening on port "+port);
 
 io.sockets.on('connection', function(socket){
-  socket.emit('message', { message: 'welcome to the chat'});
   socket.on('send', function(data){
-    io.sockets.emit('message', data);
+    io.sockets.emit('change', data);
+    console.log(data);
   })
 })

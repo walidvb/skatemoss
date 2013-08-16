@@ -1,11 +1,10 @@
-window.onload = function(){
+(function($){
+  $(document).ready(function(){
   //var serverAddress = "http://radiant-hamlet-2503.herokuapp.com/";
   var serverAddress = "Walid.local:3000"
   var messages = [];
-  var socket = io.connect('');
-  var field = document.getElementById("field");
-  var sendButton = document.getElementById("send");
-  var content = document.getElementById("content");
+  var socket = io.connect(serverAddress);
+  var items = $('.item');
 
   socket.on('message', function(data){
     if(data.message)
@@ -24,11 +23,16 @@ window.onload = function(){
     }
             });
 
-  sendButton.onclick = function() {
-    var text = field.value;
-    field.value = '';
+
+  var selectedClass = 'selected';
+  items.on('click', function() {
+    var id = $(this).attr('data-id');
+    $('.'+selectedClass).removeClass(selectedClass);
+    $(this).addClass(selectedClass);
+
     socket.emit('send', {
-      message: text
+      id: id
     });
-  }
-}
+  });
+});
+}(jQuery));
