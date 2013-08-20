@@ -58,17 +58,20 @@ app.get("/", function(req, res){
 });
 
 app.get("/beamer", function(req, res){
-	boardList.server = req.headers.host;
+	boardList.server = "http://"+req.headers.host;
 	boardList.title = "beamer";
-    res.end(req.headers.host);
 	res.render("beamer", boardList);
+	console.log(req.headers);
+    res.end(req.headers.host);
+
 });
 
 app.get("/controller", function(req, res){
-	boardList.server = req.headers.host;
-    res.end(req.headers.host);
+	boardList.server = "http://"+req.headers.host;
 	boardList.title = "controller";
 	res.render("controller", boardList);
+    res.end(req.headers.host);
+
 });
 
 app.get("/stats", function(req, res){
@@ -105,6 +108,7 @@ io.sockets.on('connection', function(socket){
 				count: 1,
 			};
 		}
+		console.log("data received");
 		io.sockets.emit('send', data);
 	})
 })

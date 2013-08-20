@@ -1,7 +1,5 @@
 (function($){
   $(document).ready(function(){
-    var messages = [];
-    var serverAddress = "Walid.local:3000"
     var socket = io.connect(serverAddress);
     var items = $('.item');
 

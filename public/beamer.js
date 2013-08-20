@@ -1,6 +1,5 @@
 (function($){
   $(document).ready(function(){
-  var messages = [];
   var socket = io.connect(serverAddress);
   var items = $('.item');
   socket.on('send', function(data){
