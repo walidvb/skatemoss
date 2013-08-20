@@ -29,7 +29,7 @@ var posts = blog.posts(function(err, res){
 			var thumb = post.photos[0].alt_sizes[3].url;
 			var big = post.photos[0].alt_sizes[0].url;
 			var item = {
-				"id": 'board'+i,
+				"id": 'board-'+i,
 				"thumb": thumb,
 				"img": big,
 			}
@@ -41,16 +41,17 @@ var posts = blog.posts(function(err, res){
 app.get("/", function(req, res){
 	res.render("home");
 });
-app.get("/test", function(req, res){
-	console.log(process);
-	res.send(process.toString());
+
+app.get("/stats", function(req, res){
+	res.render("stats");
 });
+
 app.get("/beamer", function(req, res){
-  res.render("beamer", list);
+	res.render("beamer", list);
 });
 
 app.get("/controller", function(req, res){
-  res.render("controller", list);
+	res.render("controller", list);
 });
 
 
@@ -59,14 +60,27 @@ app.use(express.static(__dirname + '/public'));
 var io = require('socket.io').listen(app.listen(port));
 //necessary for heroku / https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 10);
+	io.set("transports", ["xhr-polling"]);
+	io.set("polling duration", 10);
 });
 
 console.log("Listening on port "+port);
-
+var stats = {
+	date: Date(),
+	data: new Array(),
+};
 io.sockets.on('connection', function(socket){
-  socket.on('send', function(data){
-    io.sockets.emit('send', data);
-  })
+	socket.on('send', function(data){
+		if(stats.data[data.id])
+		{
+			stats.data[data.id].count++;
+		}
+		else
+		{
+			stats.data[data.id] = {
+				count: 1,
+			};
+		}
+		io.sockets.emit('send', data);
+	})
 })

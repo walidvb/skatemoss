@@ -22,11 +22,13 @@
   var selectedClass = 'selected';
   items.on('click', function() {
     var id = $(this).attr('data-id');
+    var id = $(this).find('img').attr('img');
     $('.'+selectedClass).removeClass(selectedClass);
     $(this).addClass(selectedClass);
 
     socket.emit('send', {
-      id: id
+      id: id,
+      img:img
     });
   });
 });
