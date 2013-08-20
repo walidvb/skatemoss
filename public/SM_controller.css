@@ -1,0 +1,14 @@
+li{
+	list-style: none;
+}
+
+.item{
+	opacity: 0.8;
+	-webkit-filter: sepia(0.8);
+	-webkit-transition: all 0.5s;
+}
+
+.item:hover, .selected{
+	opacity: 1;
+	-webkit-filter: sepia(0);
+}
