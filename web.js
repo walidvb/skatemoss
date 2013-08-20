@@ -15,7 +15,7 @@ app.engine('jade', require('jade').__express);
 var tumblr = require('tumblr');
 var blog = new tumblr.Blog('skatemoss.com', {consumer_key: '0S8LLINIwPsMy8dFgsAyUInDAxUrKn52YXy0ez4930hwfhO3LF'});
 
-var list = { 
+var boardList = { 
 	"items": new Array(),
 };
 
@@ -33,7 +33,7 @@ var posts = blog.posts(function(err, res){
 				"thumb": thumb,
 				"img": big,
 			}
-			list.items.push(item);
+			boardList.items.push(item);
 		}
 	}
 });
@@ -47,11 +47,11 @@ app.get("/stats", function(req, res){
 });
 
 app.get("/beamer", function(req, res){
-	res.render("beamer", list);
+	res.render("beamer", boardList);
 });
 
 app.get("/controller", function(req, res){
-	res.render("controller", list);
+	res.render("controller", boardList);
 });
 
 
