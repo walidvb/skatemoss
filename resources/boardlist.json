@@ -1,0 +1,7 @@
+{
+  "items":
+  [
+    {"id": "board1", "thumb": "images/board1_thumb.png", "img": "images/board1.png", "author": "yomama"},
+    {"id": "board2", "thumb": "images/board2_thumb.png", "img": "images/board2.png", "author": "hismama"}
+  ]
+}

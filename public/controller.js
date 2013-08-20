@@ -1,7 +1,7 @@
 (function($){
   $(document).ready(function(){
-  var serverAddress = "http://skatemoss.herokuapp.com/";
-  //var serverAddress = "Walid.local:3000"
+  //var serverAddress = "http://skatemoss.herokuapp.com/";
+  var serverAddress = "Walid.local:3000"
   var messages = [];
   var socket = io.connect(serverAddress);
   var items = $('.item');
