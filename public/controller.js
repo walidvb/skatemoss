@@ -1,8 +1,12 @@
 (function($){
   $(document).ready(function(){
   //var serverAddress = "http://skatemoss.herokuapp.com/";
+<<<<<<< HEAD
   //var serverAddress = "Walid.local:3000"
   var messages = [];
+=======
+  var serverAddress = "Walid.local:3000"
+>>>>>>> efa257333faf7458095ea1a6bc13bf0a2e028f93
   var socket = io.connect(serverAddress);
   var items = $('.item');
 
