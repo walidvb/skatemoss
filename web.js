@@ -17,6 +17,7 @@ var blog = new tumblr.Blog('skatemoss.com', {consumer_key: '0S8LLINIwPsMy8dFgsAy
 
 var boardList = { 
 	"items": new Array(),
+	"server": "localhost.local:3000",
 };
 
 var posts = blog.posts(function(err, res){
@@ -47,10 +48,16 @@ app.get("/stats", function(req, res){
 });
 
 app.get("/beamer", function(req, res){
+	boardList.server = req.headers.host;
+	boardList.title = "beamer";
+    res.end(req.headers.host);
 	res.render("beamer", boardList);
 });
 
 app.get("/controller", function(req, res){
+	boardList.server = req.headers.host;
+    res.end(req.headers.host);
+	boardList.title = "controller";
 	res.render("controller", boardList);
 });
 

@@ -3,6 +3,7 @@ html
   head
     title= title
     script(src="/jquery.min.js")
+    script!='var serverAddress = "' + server + '";'
     script(src="/controller.js")
     script(src="/socket.io/socket.io.js")
     script(src="/masonry.pkgd.min.js")
