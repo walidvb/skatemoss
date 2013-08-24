@@ -1,14 +1,25 @@
+#main{
+	margin-left:auto;
+	margin-right:auto;
+	position:fixed !important;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background: black;
+}
+
+.cycle-slideshow, .cycle-slideshow * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.cycle-slideshow { width: 45%; min-width: 200px; max-width: 500px; height: 100%; margin: auto;}
+
+.cycle-slideshow img{
+	width: auto;
+	max-height: 95%;
+}
+
 li{
 	list-style: none;
-}
 
-.item{
-	opacity: 0.8;
-	-webkit-filter: sepia(0.8);
-	-webkit-transition: all 0.5s;
-}
-
-.item:hover, .selected{
-	opacity: 1;
-	-webkit-filter: sepia(0);
 }

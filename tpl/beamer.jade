@@ -4,6 +4,7 @@ html
     title= title
     script(src="/jquery.min.js")
     script(src="/jquery.cycle2.min.js")
+    script(src="/jquery.cycle2.center.min.js")
     script(src="/socket.io/socket.io.js")
     script!='var serverAddress = "' + server + '";'
     script(src="/beamer.js")
@@ -11,6 +12,6 @@ html
     link(rel="stylesheet", href="/SM_beamer.css")
   body
     #main
-      .cycle-slideshow(data-cycle-slides="> .cycle-slide", data-cycle-paused="true")
+      .cycle-slideshow(data-cycle-slides="> .cycle-slide", data-cycle-paused="true", data-cycle-center-horz="true", data-cycle-center-vert="true")
         each item in items
-          .item.cycle-slide(href="#"+item.id, data-id=item.id, data-cycle-hash=item.id): img(src=item.img)
+          .item.cycle-slide(href="#"+item.id, data-id=item.id, data-cycle-hash=item.id): img(src=item.img) 

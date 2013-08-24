@@ -3,7 +3,11 @@
     var socket = io.connect(serverAddress);
     var items = $('.item');
 
+    //Masonry tweaks
+
+    // send info to server
     var selectedClass = 'selected';
+
     items.on('click', function() {
       var id = $(this).attr('data-id');
       var img = $(this).find('img').attr('src');
@@ -15,6 +19,6 @@
         img: img,
       });
     });
-    setTimeout(function(){$('#main ul').masonry()}, 1000);
+    setTimeout(function(){$('#main').masonry()}, 1000);
   });
 }(jQuery));

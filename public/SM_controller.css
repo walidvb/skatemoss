@@ -1,14 +1,44 @@
+body{
+	margin:0px;
+}
+
+#main{
+	max-width:980px;
+	margin-left:auto;
+	margin-right:auto;
+
+	background: black;
+}
+
+
+.thumb{
+	height: 140px;
+	width: 140px;
+	overflow: hidden;
+	margin: 0px;
+	padding:0px;
+}
+
+
+.grid-sizer{
+	width:128px;
+}
+
 li{
 	list-style: none;
 }
 
 .item{
-	opacity: 0.8;
-	-webkit-filter: sepia(0.8);
+	opacity: 0.4;
 	-webkit-transition: all 0.5s;
+}
+
+.item img{
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .item:hover, .selected{
 	opacity: 1;
-	-webkit-filter: sepia(0);
 }

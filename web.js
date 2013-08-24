@@ -16,12 +16,13 @@ app.engine('jade', require('jade').__express);
 
 //******************GET BOARDS LOCAL**********************//
 
-//var list = require(__dirname + '/resources/boardlist.json');
+var boardList = require(__dirname + '/resources/boardlist.json');
 
 
 //******************GET BOARDS TUMBLR**********************//
 
 //get them from tumblr
+/*
 var tumblr = require('tumblr');
 var blog = new tumblr.Blog('skatemoss.com', {consumer_key: '0S8LLINIwPsMy8dFgsAyUInDAxUrKn52YXy0ez4930hwfhO3LF'});
 
@@ -37,7 +38,7 @@ var posts = blog.posts(function(err, res){
 		var post = posts[i];
 		if(post.type == 'photo')
 		{
-			var thumb = post.photos[0].alt_sizes[3].url;
+			var thumb = post.photos[0].alt_sizes[2].url;
 			var big = post.photos[0].alt_sizes[0].url;
 			var item = {
 				"id": 'board-'+i,
@@ -48,7 +49,7 @@ var posts = blog.posts(function(err, res){
 		}
 	}
 });
-
+*/
 
 //******************SERVER CONTROLLER COMMUNICATION**********************//
 
